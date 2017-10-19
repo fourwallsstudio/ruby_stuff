@@ -5,4 +5,4 @@ RubyVM::InstructionSequence.compile_option = {
 
 require_relative 'fact.rb'
 
-puts factorial(12345)
+puts factorial(123456)

@@ -3,15 +3,12 @@ require 'json'
 class Thing
   attr_reader :status
   @@states = [:open, :ready, :in_progress, :done]
+  def self.states; @@states; end
 
   @@states.each do |status|
     define_method status do
       @status = status
     end
-  end
-
-  def self.states
-    @@states
   end
 end
 

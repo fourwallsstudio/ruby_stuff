@@ -4,7 +4,7 @@ class Timeline
   end
 
   def show_tweet(index)
-    puts "tweet_#{index+1}: \"#{@tweets[index]}\""
+    puts "tweet_#{index + 1}: \"#{@tweets[index]}\""
   end
 end
 

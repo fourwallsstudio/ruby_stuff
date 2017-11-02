@@ -19,7 +19,7 @@ class BinaryMinHeap
   end
 
   def peek
-    store[0]
+    store.first
   end
 
   def push(val)
@@ -28,12 +28,8 @@ class BinaryMinHeap
   end
 
   def self.child_indices(len, parent_index)
-    indicies = []
-    child1_idx = parent_index * 2 + 1
-    child2_idx = child1_idx + 1
-    indicies << child1_idx if child1_idx < len
-    indicies << child2_idx if child2_idx < len
-    indicies
+    pi = parent_index * 2
+    [pi + 1, pi + 2].select { |i| i < len }
   end
 
   def self.parent_index(child_index)
@@ -68,7 +64,7 @@ class BinaryMinHeap
     arr
   end
 
-  def self.heapify_up(arr, child_idx, len = arr.length, &prc)
+  def self.heapify_up(arr, child_idx, &prc)
     prc = prc || Proc.new { |a,b| a <=> b }
     current_node = arr[child_idx]
     parent_idx = self.parent_index(child_idx)

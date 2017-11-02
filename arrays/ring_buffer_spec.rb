@@ -1,6 +1,6 @@
 require_relative 'ring_buffer'
 
-describe 'RingBuffer' do
+describe RingBuffer do
   subject { RingBuffer.new }
   items = []
   8.times { |i| items.push("item_#{(i + 97).chr}") }

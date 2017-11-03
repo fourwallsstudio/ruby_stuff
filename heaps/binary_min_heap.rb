@@ -36,6 +36,7 @@ class BinaryMinHeap
     child_index == 0 ? nil : (child_index - 1) / 2
   end
 
+  # O(n)
   def self.heapify_down(arr, parent_idx, len = arr.length, &prc)
     prc = prc || Proc.new { |a, b| a <=> b }
     current_node = arr[parent_idx]
@@ -64,6 +65,7 @@ class BinaryMinHeap
     arr
   end
 
+  #O(n log n)
   def self.heapify_up(arr, child_idx, &prc)
     prc = prc || Proc.new { |a,b| a <=> b }
     current_node = arr[child_idx]
@@ -81,6 +83,18 @@ class BinaryMinHeap
       else
         heapified = true
       end
+    end
+
+    arr
+  end
+
+  # O(n) - bound by constant k + 1 / 2**k
+  def self.build_heap(arr, &prc)
+    # every element after mid index is a leaf node.
+    mid = arr.length / 2
+
+    mid.downto(0) do |i|
+      heapify_down(arr, i, &prc)
     end
 
     arr

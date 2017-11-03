@@ -45,4 +45,11 @@ describe BinaryMinHeap do
       expect(BinaryMinHeap.heapify_up(arr, 8)).to eq([1, 2, 4, 3, 6, 7, 8, 9, 5])
     end
   end
+
+  describe '::build_heap' do
+    it 'builds a valid heap from an array' do
+      arr = [9, 7, 5, 8, 4, 7, 1, 2, 4]
+      expect(BinaryMinHeap.build_heap(arr)).to eq([1, 2, 5, 4, 4, 7, 9, 8, 7])
+    end
+  end
 end

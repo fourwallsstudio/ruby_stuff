@@ -9,8 +9,7 @@ def instertionsort(arr)
     while j >= 0
       # compairing could be reduced to O(log n) by using
       # binary search to find index. Swapping would still be O(n) if
-      # inserting into beginning/mid of array. Swapping wouldn't be
-      # an issue if sorting a linked list.
+      # inserting into beginning/mid of array.
       break if arr[j] <= arr[j+1]
       arr[j], arr[j+1] = arr[j+1], arr[j]
       j -= 1

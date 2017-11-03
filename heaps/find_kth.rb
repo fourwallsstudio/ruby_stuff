@@ -1,24 +1,13 @@
 require_relative 'binary_min_heap'
 
+# O(kn)
 def find_kth_largest(arr, k)
   arr = arr.dup
 
-  # use prc to turn min heap into max heap
-  prc = Proc.new { |a, b|  -1 * (a <=> b) }
+  prc = Proc.new { |a, b| -1 * (a <=> b) } # proc for max heap
+  max_heap = BinaryMinHeap.new(arr, &prc) # build max heap - O(n)
 
-  # create max heap
-  i = 0
-  while i < arr.length
-    BinaryMinHeap.heapify_up(arr, i, &prc)
-    i += 1
-  end
+  (k - 1).times { max_heap.extract } # O(kn) - extract uses heapify_down which is O(n)
 
-  i = arr.length - 1
-  while i > arr.length - k
-    arr[0], arr[i] = arr[i], arr[0]
-    BinaryMinHeap.heapify_down(arr, 0, i, &prc)
-    i -= 1
-  end
-
-  return arr.first
+  max_heap.extract
 end

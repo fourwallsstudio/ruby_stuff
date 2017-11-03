@@ -2,8 +2,8 @@ class BinaryMinHeap
 
   attr_reader :store, :prc
 
-  def initialize(&prc)
-    @store = Array.new
+  def initialize(arr = Array.new, &prc)
+    @store = BinaryMinHeap.build_heap(arr, &prc)
     @prc = prc || Proc.new { |a, b| a <=> b }
   end
 
@@ -14,7 +14,7 @@ class BinaryMinHeap
   def extract
     store[0], store[count - 1] = store[count - 1], store[0]
     item = store.pop
-    BinaryMinHeap.heapify_down(store, 0)
+    BinaryMinHeap.heapify_down(store, 0, &prc)
     item
   end
 
@@ -24,7 +24,7 @@ class BinaryMinHeap
 
   def push(val)
     store << val
-    BinaryMinHeap.heapify_up(store, count - 1)
+    BinaryMinHeap.heapify_up(store, count - 1, &prc)
   end
 
   def self.child_indices(len, parent_index)
@@ -90,6 +90,7 @@ class BinaryMinHeap
 
   # O(n) - bound by constant k + 1 / 2**k
   def self.build_heap(arr, &prc)
+    return arr if arr.empty?
     # every element after mid index is a leaf node.
     mid = arr.length / 2
 

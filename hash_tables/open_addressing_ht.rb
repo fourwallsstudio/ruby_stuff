@@ -54,7 +54,7 @@ class OpenAddressHashTable
 
   def lookup(key)
     index = find_index(key)
-    index.nil? ? 'not found' : store[index].value
+    index.nil? ? 'key not found' : store[index].value
   end
 
   def delete(key)

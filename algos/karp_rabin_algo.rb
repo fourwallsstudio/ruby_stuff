@@ -3,7 +3,7 @@
 
 def sub_strings(str, sub_str)
   len = sub_str.length
-  prime = 3
+  prime = 101
   sub_str_hash = hash(sub_str, prime)
   prev_hash = nil
   sub_indicies = []

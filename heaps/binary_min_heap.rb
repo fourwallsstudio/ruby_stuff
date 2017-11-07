@@ -1,3 +1,7 @@
+# find - O(n)
+# insert - O(log n)
+# delete - O(log n)
+
 class BinaryMinHeap
 
   attr_reader :store, :prc

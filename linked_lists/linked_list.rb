@@ -6,6 +6,10 @@ class Link
     @next = nil
     @prev = nil
   end
+
+  def to_s
+    "data: #{data}, next: #{@next.data}"
+  end
 end
 
 

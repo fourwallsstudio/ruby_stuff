@@ -23,6 +23,14 @@ class LinkedList
     @tail.prev = @head
   end
 
+  def first
+    @head.next
+  end
+
+  def last
+    @last.next
+  end
+
   def append(node)
     node.prev = @tail.prev
     node.next = @tail

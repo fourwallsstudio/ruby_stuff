@@ -6,7 +6,9 @@ def bucket_sort(arr, idx)
 end
 
 
-# assuming all strings in arr are of same length
+# assuming all strings in arr are of same length.
+# for different lengths use padding.
+
 def radix_sort(arr)
         sorted = arr
 

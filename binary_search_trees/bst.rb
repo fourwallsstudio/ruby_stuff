@@ -1,11 +1,16 @@
 class BSTNode
-  attr_reader :data, :left, :right
+  attr_accessor :data, :left, :right, :parent
 
   def initialize(data)
     @data = data
     @left = nil
     @right = nil
+    @parent = nil
   end
+
+  def display
+    "data: #{@data}, left: #{@left}, right: #{@right}, parent: #{@parent}"
+  end 
 end
 
 

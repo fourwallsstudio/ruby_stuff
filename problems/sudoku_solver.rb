@@ -67,7 +67,7 @@ def solve_sudoku(sudoku)
        potentials = Array.new(9) { Array.new(9) { nil } }
        over = false
 
-        until over
+       until over
                 over = true
                 sudoku.length.times do |row|
                           sudoku.length.times do |col|
@@ -131,4 +131,4 @@ s3 = [
         [nil, nil, 7, 1, 4, nil, nil, 8, 9]
 ]
 
-solve_sudoku(s1).each { |r| p r }
+solve_sudoku(s3).each { |r| p r }
